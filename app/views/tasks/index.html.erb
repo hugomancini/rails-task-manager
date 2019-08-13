@@ -1,0 +1,22 @@
+<div class="container">
+
+<h1>Hello here are the tasks</h1>
+
+<% @tasks.each do |task| %>
+  <% if task.completed == true  %>
+    <div>
+      <input type="checkbox" id="task" name="task"
+             checked>
+      <label for="scales"><%= link_to task.title, task_path(task) %></label>
+    </div>
+    <% else %>
+    <div>
+      <input type="checkbox" id="task" name="task"
+             >
+      <label for="scales"><%= link_to task.title, task_path(task) %></label>
+    </div>
+  <% end %>
+<% end %>
+
+<button type="button" class="btn btn-success"><%= link_to "Add new task", tasks_new_url %></button>
+</div>
